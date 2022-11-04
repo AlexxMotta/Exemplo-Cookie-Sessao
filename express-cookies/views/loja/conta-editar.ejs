@@ -10,7 +10,7 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <title>Cadastro novo usuário</title>
+    <title>Editar Conta</title>
     <script>
       function verificarSenhas() {
         if (senha.value == "") {
@@ -35,9 +35,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>Cadastro novo usuário</h1>
+      <h1>Editar Conta</h1>
       <div class="form">
-        <form action="/form-cadastro-users" method="POST">
+        <form action="/signup" method="POST">
           <label for="username" class="form-label">Nome Completo:</label>
           <input type="text" name="username" id="nome" class="form-control" />
           <div class="row">

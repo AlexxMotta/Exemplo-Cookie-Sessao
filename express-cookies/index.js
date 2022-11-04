@@ -41,8 +41,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const mongoRepository = require("./repository/mongo-repository");
 
-app.get("/", (req, res) => {
-  res.render("raiz/home");
+app.get("/", async (req, res) => {
+  const ListCars = await mongoRepository.getAllCars();
+  res.render("raiz/home", { cars: ListCars });
 });
 app.get("/signin", (req, res) => {
   //console
@@ -51,7 +52,7 @@ app.get("/signin", (req, res) => {
 app.post("/form-login", (req, res) => {
   // console.log("post - /login");
   // console.log(req.body);
-  mongoRepository.getUsers(req.body.login, req.body.pass).then((users) => {
+  mongoRepository.getUsers(req.body.email, req.body.password).then((users) => {
     if (users.length > 0) {
       req.session.user = users[0];
       res.redirect("/loja");
@@ -82,6 +83,22 @@ app.get("/loja", async (req, res) => {
   console.log("Nome do usuario - >", req.session.user.username);
 
   res.render("loja/home", { user: req.session.user, cars: ListCars });
+});
+
+app.get("/loja/aluguel", (req, res) => {
+  res.render("");
+});
+
+app.get("/loja/conta", (req, res) => {
+  res.render("loja/conta");
+});
+
+app.get("/loja/conta-editar", (req, res) => {
+  res.render("loja/conta-editar");
+});
+
+app.get("/loja/conta-senha", (req, res) => {
+  res.render("loja/conta-senha");
 });
 
 app.use("/admin/*", (req, res, next) => {
@@ -130,7 +147,7 @@ app.post("/form-cadastro-users", async (req, res) => {
   };
   const result = await mongoRepository.setUsers(user);
   console.log("Deu certo registrar = ", result);
-  res.redirect("/home");
+  res.redirect("/");
 });
 
 app.listen(port, () => {

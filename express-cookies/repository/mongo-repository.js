@@ -25,9 +25,9 @@ async function main() {
 main().then(console.log).catch(console.error);
 //   .finally(() => client.close());
 
-async function getUsers(username, password) {
+async function getUsers(email, password) {
   const findResult = await user_collection
-    .find({ username: username, password: password })
+    .find({ email: email, password: password })
     .toArray();
   console.log("Found documents =>", findResult);
   return findResult;

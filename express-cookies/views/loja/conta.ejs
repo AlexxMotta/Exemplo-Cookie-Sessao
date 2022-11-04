@@ -19,6 +19,14 @@
       ul li {
         list-style: none;
       }
+
+      .main {
+        margin-left: 30%;
+        margin-right: 50%;
+      }
+      #info {
+        color: gray;
+      }
     </style>
     <title>UFC CAR</title>
   </head>
@@ -28,72 +36,66 @@
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
       >
         <a
-          href="/"
+          href="#"
           class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
         >
           <img src="imagens/índice.jpeg" alt="erro" width="40px" />
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a href="/loja" class="nav-link px-2 link-secondary">Loja</a></li>
           <li>
-            <a href="#about" class="nav-link px-2 link-dark">Developers</a>
+            <a href="/loja/aluguel" class="nav-link px-2 link-dark"
+              >Meus Alugueis</a
+            >
           </li>
-          <li><a href="#about" class="nav-link px-2 link-dark">About</a></li>
+          <li>
+            <a href="/loja/conta" class="nav-link px-2 link-dark"
+              >Minha Conta</a
+            >
+          </li>
           <!--<li><a href="#" class="nav-link px-2 link-dark">About</a></li>-->
         </ul>
 
         <div class="col-md-3 text-end">
-          <a href="signin"
-            ><button type="button" class="btn btn-outline-primary me-2">
-              Login
-            </button></a
-          >
-          <a href="signup"
-            ><button type="button" class="btn btn-primary">Sign-up</button></a
-          >
+          <!-- <button type="button" class="btn btn-outline-primary me-2">Login</button>
+                <button type="button" class="btn btn-primary">Sign-up</button>-->
         </div>
       </header>
     </div>
     <!--Parte dos cards precisa adicionar um for pegando todo essa parte-->
 
     <div class="main">
-      <%for( let i = 0; i < cars.length; i++ ) {%>
-      <div class="row">
-        <% for( let index = 0; index < 4; index++ ) { %>
-
-        <div class="4 col-3">
-          <div class="card mb-4 rounded-3 shadow-sm" style="width: 18rem">
-            <div class="card-header" style="text-align: center; height: 50px">
-              <h4 class="my-0 fw-normal"><%= cars[i].modelo %></h4>
-            </div>
-            <img
-              id="card-img"
-              src="imagens/índice.jpeg"
-              alt="Erro ao carregar imagem"
-              class="card-img-top img-responsive"
-            />
-            <div class="card-body">
-              <ul>
-                <li>Ano: <%= cars[i].ano %></li>
-                <li>Marca: <%= cars[i].marca %></li>
-                <li>Cor: <%= cars[i].cor %></li>
-                <li>Valor:</li>
-                <li>Preço da diária:</li>
-                <li>Status:</li>
-                <p></p>
-              </ul>
-              <a href="/loja/alugar" class="w-100 btn btn-lg btn-primary"
-                >Alugar</a
+      <div class="card mb-4 rounded-3 shadow-sm" style="width: 30rem">
+        <div class="box">
+          <div class="card-body">
+            <h3 style="text-align: center">Dados Cadastrais</h3>
+            <ul>
+              <li>Nome:</li>
+              <span id="info"></span>
+              <li>Data de Nascimento:</li>
+              <span id="info"></span>
+              <li>Gênero:</li>
+              <span id="info"></span>
+              <li>Telefone:</li>
+              <span id="info"></span>
+              <li>Email:</li>
+            </ul>
+            <div class="buttons">
+              <a href="/loja/conta-editar" class="w-100 btn btn-lg btn-primary"
+                >Editar contar</a
+              >
+              <br /><br />
+              <a href="/loja/conta-senha" class="w-100 btn btn-lg btn-primary"
+                >Editar Senhas</a
               >
             </div>
           </div>
         </div>
-        <% } %>
       </div>
-      <% } %>
     </div>
-    <div class="container" id="about">
+
+    <div class="container">
       <footer>
         <hr />
         <p>Desenvolvedores:</p>
@@ -101,14 +103,6 @@
         <p>Alex Mota - alexmotta@gmail.com</p>
       </footer>
     </div>
-
-    <!-- <a href="/admin/home">Admin Area</a><br/>
-    <a href="/student/home">Student Area</a>
-    <br/><br/><br/>
-    <a href="/logout">Logout</a></body><br>
-    <a href="/cars">Cars</a>
-    <a href="/signup">Signup</a> -->
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
