@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        #card-img{
+            width: 50%;
+            margin: 0px auto;
+            text-align: center;
+        }
+        ul li{
+            list-style: none;
+        }
+        
+    </style>
+    <title>UFC CAR</title>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/loja" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <img src="imagens/índice.jpeg" alt="erro" width="40px"> 
+            </a>
+        
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/loja" class="nav-link px-2 link-secondary">Loja</a></li>
+                <li><a href="/loja/aluguel" class="nav-link px-2 link-dark">Meus Alugueis</a></li>
+                <li><a href="/loja/conta" class="nav-link px-2 link-dark">Minha Conta</a></li>
+                <!--<li><a href="#" class="nav-link px-2 link-dark">About</a></li>-->
+            </ul>
+        
+            <div class="col-md-3 text-end">
+                <%= user.username %>
+            </div>
+        </header>
+    </div>
+    <!--Parte dos cards precisa adicionar um for pegando todo essa parte-->
+    
+    <div class="main">
+       <%for( let i = 0; i < cars.length; i++ ) {%>
+        <div class="row">
+            <% for( let index = 0; index < 4; index++ ) { %>
+            
+            <div class="4 col-3">
+                <div class="card mb-4 rounded-3 shadow-sm" style="width: 18rem; ">
+                    <div class="card-header" style="text-align: center; height: 50px;">
+                        <h4 class="my-0 fw-normal"><%= cars[i].modelo %></h4>
+                    </div>
+                    <img id="card-img" src="imagens/índice.jpeg" alt="Erro ao carregar imagem" class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <ul>
+                            <li>Ano: <%= cars[i].ano %></li>
+                            <li>Marca: <%= cars[i].marca %></li>
+                            <li>Cor: <%= cars[i].cor %> </li>
+                            <li>Valor:</li>
+                            <li>Preço da diária:</li>
+                            <li>Status:</li>
+                        </ul>
+                        <a href="/loja/alugar" class="w-100 btn btn-lg btn-primary">Alugar</a>
+                    </div>
+                </div>  
+            </div>  
+          <% } %>         
+        </div>
+       <% } %>
+    </div>
+    <div class="container">
+        <footer>
+            <hr>
+            <p>Desenvolvedores:</p>
+            <p>Khelton Jonathan - kheltonjonathan55@gmail.com</p>
+            <p>Alex Mota - alexmotta@gmail.com</p>
+        </footer>
+    </div>
+
+    <a href="/admin/home">Admin Area</a><br/>
+    <a href="/student/home">Student Area</a>
+    <br/><br/><br/>
+    <a href="/logout">Logout</a></body><br>
+    <a href="/cars">Cars</a>
+    <a href="/signup">Signup</a>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+</body>
+</html>
