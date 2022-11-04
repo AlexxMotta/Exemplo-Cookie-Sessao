@@ -44,7 +44,10 @@ const mongoRepository = require("./repository/mongo-repository");
 app.get("/", (req, res) => {
   res.render("raiz/home");
 });
-
+app.get("/signin", (req, res) => {
+  //console
+  res.render("cadastro/home");
+});
 app.post("/form-login", (req, res) => {
   // console.log("post - /login");
   // console.log(req.body);
@@ -103,11 +106,6 @@ app.get("/cars", async (req, res) => {
 app.get("/signup", (req, res) => {
   //console
   res.render("login/home");
-});
-
-app.get("/signin", (req, res) => {
-  //console
-  res.render("cadastro/home");
 });
 
 app.post("/form-cadastro-users", async (req, res) => {
